@@ -1,0 +1,16 @@
+projetoESIGJAVA/services/UserService.class
+projetoESIGJAVA/bean/TarefaBean.class
+projetoESIGJAVA/services/PrincipalService.class
+projetoESIGJAVA/conversor/PrioridadeConverter.class
+projetoESIGJAVA/entities/User.class
+projetoESIGJAVA/dao/GenericDao.class
+projetoESIGJAVA/entities/Principal.class
+projetoESIGJAVA/conversor/StatusConverter.class
+projetoESIGJAVA/conversor/UserConverter.class
+projetoESIGJAVA/enums/Prioridade.class
+projetoESIGJAVA/connection/ConnectionFactory.class
+projetoESIGJAVA/entities/Tarefa.class
+projetoESIGJAVA/dto/FormsConsultaTarefa.class
+projetoESIGJAVA/services/TarefaService.class
+projetoESIGJAVA/utils/Message.class
+projetoESIGJAVA/enums/Status.class

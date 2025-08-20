@@ -1,0 +1,16 @@
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/entities/Tarefa.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/conversor/UserConverter.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/conversor/PrioridadeConverter.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/services/PrincipalService.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/enums/Prioridade.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/services/UserService.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/dto/FormsConsultaTarefa.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/utils/Message.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/entities/Principal.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/connection/ConnectionFactory.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/conversor/StatusConverter.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/services/TarefaService.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/enums/Status.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/bean/TarefaBean.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/dao/GenericDao.java
+/home/heitor/java/task-manager/src/main/java/projetoESIGJAVA/entities/User.java
