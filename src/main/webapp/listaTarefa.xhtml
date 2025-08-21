@@ -10,69 +10,73 @@
     <link rel="stylesheet" href="assets/css/listaTarefa.css" />
 </h:head>
 
-<h:body style="background-color:#f8f9fa;">
+<h:body class="lista-fundo">
 
-    <h:form style="margin:40px auto; max-width:1000px;">
-
-        <p:panel header="Buscar Tarefas" style="margin-bottom:25px;">
-            <p:messages id="messages" closable="true">
-                <p:autoUpdate />
-            </p:messages>
-
-            <p:panelGrid columns="4" styleClass="ui-fluid" columnClasses="ui-grid-col-3,ui-grid-col-3,ui-grid-col-3,ui-grid-col-3">
-
-                <p:outputLabel for="numero" value="Número:" />
-                <p:inputText id="numero" value="#{tarefaBean.formConsulta.numero}" styleClass="campo" />
-
-                <p:outputLabel for="titulo" value="Título/Descrição:" />
-                <p:inputText id="titulo" value="#{tarefaBean.formConsulta.titulo}" styleClass="campo" />
-
-                <p:outputLabel for="responsavel" value="Responsável:" />
-                <p:selectOneMenu id="responsavel" value="#{tarefaBean.formConsulta.responsavel}" styleClass="select">
-                    <f:converter converterId="responsavelConverter" />
-                    <f:selectItems value="#{tarefaBean.comboResponsaveis}" />
-                </p:selectOneMenu>
-
-                <p:outputLabel for="situacao" value="Situação:" />
-                <p:selectOneMenu id="situacao" value="#{tarefaBean.formConsulta.situacao}" styleClass="select">
-                    <f:converter converterId="statusConverter" />
-                    <f:selectItems value="#{tarefaBean.niveisStatus}" />
-                </p:selectOneMenu>
-
-                <f:facet name="footer">
-                    <p:commandButton action="#{tarefaBean.listar}" value="Buscar" icon="pi pi-search" styleClass="btn ui-button-success" style="margin-right:10px;" />
+    <div class="lista-wrapper">
+        <h:form>
+            <p:panel header="Buscar Tarefas" styleClass="painel-busca">
+                <p:messages id="messages" closable="true">
+                    <p:autoUpdate />
+                </p:messages>
+                <div class="busca-grid">
+                    <div class="busca-campo">
+                        <p:outputLabel for="numero" value="Número:" />
+                        <p:inputText id="numero" value="#{tarefaBean.formConsulta.numero}" styleClass="campo" />
+                    </div>
+                    <div class="busca-campo">
+                        <p:outputLabel for="titulo" value="Título/Descrição:" />
+                        <p:inputText id="titulo" value="#{tarefaBean.formConsulta.titulo}" styleClass="campo" />
+                    </div>
+                    <div class="busca-campo">
+                        <p:outputLabel for="user" value="Usuário:" />
+                        <p:selectOneMenu id="user" value="#{tarefaBean.formConsulta.user}" styleClass="select">
+                            <f:converter converterId="userConverter" />
+                            <f:selectItems value="#{tarefaBean.comboUsers}" />
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="busca-campo">
+                        <p:outputLabel for="situ" value="Situação:" />
+                        <p:selectOneMenu id="situ" value="#{tarefaBean.formConsulta.situ}" styleClass="select">
+                            <f:converter converterId="situConverter" />
+                            <f:selectItems value="#{tarefaBean.niveisSitu}" />
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="busca-actions">
+                    <p:commandButton action="#{tarefaBean.listar}" value="Buscar" icon="pi pi-search" styleClass="btn ui-button-success" />
                     <p:button value="Cadastrar" outcome="formTarefa" icon="pi pi-plus" styleClass="ui-button-secondary" />
-                </f:facet>
-            </p:panelGrid>
-        </p:panel>
+                </div>
+            </p:panel>
 
-        <p:panel header="Lista de Tarefas" style="padding:0;">
-            <p:dataTable var="t" value="#{tarefaBean.listaTarefas}" paginator="true" rows="10" emptyMessage="Nenhuma tarefa encontrada.">
+            <p:panel header="Lista de Tarefas" styleClass="painel-lista">
+                <p:dataTable var="t" value="#{tarefaBean.listaTarefas}" paginator="true" rows="10" emptyMessage="Nenhuma tarefa encontrada."
+                             styleClass="tabela-tarefas">
 
-                <p:column headerText="Número">
-                    <h:outputText value="#{t.id}" />
-                </p:column>
+                    <p:column headerText="Número">
+                        <h:outputText value="#{t.id}" />
+                    </p:column>
 
-                <p:column headerText="Título">
-                    <h:outputText value="#{t.titulo}" />
-                </p:column>
+                    <p:column headerText="Título">
+                        <h:outputText value="#{t.titulo}" />
+                    </p:column>
 
-                <p:column headerText="Responsável">
-                    <h:outputText value="#{t.responsavel.nome}" />
-                </p:column>
+                    <p:column headerText="Usuário">
+                        <h:outputText value="#{t.user.nome}" />
+                    </p:column>
 
-                <p:column headerText="Status">
-                    <h:outputText value="#{t.status}" />
-                </p:column>
+                    <p:column headerText="Situação">
+                        <h:outputText value="#{t.situ}" />
+                    </p:column>
 
-                <p:column headerText="Ações" style="width:180px;">
-                    <p:commandButton value="Editar" icon="pi pi-pencil" action="#{tarefaBean.editar(t)}" styleClass="ui-button-info" update="@form" style="margin-right:4px;" />
-                    <p:commandButton value="Excluir" icon="pi pi-trash" action="#{tarefaBean.remover(t)}" styleClass="ui-button-danger" update="@form" style="margin-right:4px;" />
-                    <p:commandButton value="Concluir" icon="pi pi-check" action="#{tarefaBean.concluir(t)}"
-                                     rendered="#{!t.finished}" styleClass="ui-button-success" update="@form" />
-                </p:column>
-            </p:dataTable>
-        </p:panel>
-    </h:form>
+                    <p:column headerText="Ações" style="width:180px;">
+                        <p:commandButton value="Editar" icon="pi pi-pencil" action="#{tarefaBean.editar(t)}" styleClass="ui-button-info" update="@form" style="margin-right:4px;" />
+                        <p:commandButton value="Excluir" icon="pi pi-trash" action="#{tarefaBean.remover(t)}" styleClass="ui-button-danger" update="@form" style="margin-right:4px;" />
+                        <p:commandButton value="Concluir" icon="pi pi-check" action="#{tarefaBean.concluir(t)}"
+                                         rendered="#{!t.finished}" styleClass="ui-button-success" update="@form" />
+                    </p:column>
+                </p:dataTable>
+            </p:panel>
+        </h:form>
+    </div>
 </h:body>
 </html>
